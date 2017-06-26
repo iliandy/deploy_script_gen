@@ -1,5 +1,5 @@
 class Dojo < ActiveRecord::Base
 	has_many :users
-	
-	validate :name, presence:true
+
+	validates :name, presence:true
 end
