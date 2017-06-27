@@ -7,14 +7,31 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create(user_params.merge(dojo: Dojo.find(user_params[:dojo])))
-
-    if user.valid?
-      session[:user_id] = user.id
-      redirect_to "/scripts"
+    if secret_params[:password] != ''
+      key = SecretKey.last
+      if key.authenticate(secret_params[:password])
+        user = User.create(user_params.merge(dojo: Dojo.find(user_params[:dojo])))
+        if user.valid?
+          session[:user_id] = user.id
+          Admin.create(user: user)
+          redirect_to '/scripts'
+        else
+          flash[:msgs] = user.errors.full_messages
+          redirect_to '/'
+        end
+      else  
+        flash[:msgs] = ['invalid admin password']
+        redirect_to '/'
+      end
     else
-      flash[:msgs] = user.errors.full_messages
-      redirect_to "/"
+      user = User.create(user_params.merge(dojo: Dojo.find(user_params[:dojo])))
+      if user.valid?
+        session[:user_id] = user.id
+        redirect_to '/scripts'
+      else
+        flash[:msgs] = user.errors.full_messages
+        redirect_to '/'
+      end
     end
   end
 
@@ -39,6 +56,10 @@ class UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :dojo)
+    end
+
+    def secret_params
+      params.require(:secret_key).permit(:password)
     end
 
     # def user_update_params
