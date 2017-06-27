@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     if secret_params[:password] != ''
       key = SecretKey.last
       if key.authenticate(secret_params[:password])
-        user = User.create(user_params.merge(dojo: Dojo.find(user_params[:dojo])))
+        user = User.create(user_params.merge(dojo: Dojo.find(user_params[:dojo]), access: true))
         if user.valid?
           session[:user_id] = user.id
           Admin.create(user: user)
@@ -20,11 +20,11 @@ class UsersController < ApplicationController
           redirect_to '/'
         end
       else  
-        flash[:msgs] = ['invalid admin password']
+        flash[:msgs] = ['Invalid admin password']
         redirect_to '/'
       end
     else
-      user = User.create(user_params.merge(dojo: Dojo.find(user_params[:dojo])))
+      user = User.create(user_params.merge(dojo: Dojo.find(user_params[:dojo]), access: false))
       if user.valid?
         session[:user_id] = user.id
         redirect_to '/scripts'

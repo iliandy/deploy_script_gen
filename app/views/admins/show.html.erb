@@ -20,10 +20,10 @@
 			<td><%=student.first_name%></td>
 			<td><%=student.last_name%></td>
 			<td>
-			<%if student.access == "f"%>
-				<a href="/access/<%=student.id%>/allow">Allow Access</a>
-			<%else%>
+			<%if student.access == "t"%>
 				<a href="/access/<%=student.id%>/deny">Remove Access</a>
+			<%else%>
+				<a href="/access/<%=student.id%>/allow">Allow Access</a>
 			<%end%>
 			</td>
 		</tr>
