@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   get "/scripts" => "scripts#index"
   post "/scripts/gen" => "scripts#generate"
 
+  #admins routes
+  get "/admins/:id" => "admins#show"
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
