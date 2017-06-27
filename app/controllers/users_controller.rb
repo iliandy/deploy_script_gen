@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :user_authorized, only: [:scripts]
   before_action :user_logged_in, only: [:new]
 
   def new
@@ -17,12 +16,6 @@ class UsersController < ApplicationController
       flash[:msgs] = user.errors.full_messages
       redirect_to "/"
     end
-  end
-
-  def scripts
-    @admin_ids = Admin.pluck(:user_id)
-    @current_user = current_user
-    # render "scripts.html.erb"
   end
 
   # def edit
