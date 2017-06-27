@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   end
 
   def scripts
+    @admin_ids = Admin.pluck(:user_id)
     @current_user = current_user
     # render "scripts.html.erb"
   end

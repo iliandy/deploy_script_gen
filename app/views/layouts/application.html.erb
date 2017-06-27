@@ -24,11 +24,11 @@
 
     <%= yield %>
 
-    <div class="msgs">
+    <div class="msgs red-text">
       <% if flash[:msgs] %>
-      <% flash[:msgs].each do |msg| %>
-      <p><%= msg %></p>
-      <% end %>
+        <% flash[:msgs].each do |msg| %>
+          <p><%= msg %></p>
+        <% end %>
       <% end %>
     </div>
   </div>
