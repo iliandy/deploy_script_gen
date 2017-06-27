@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   #admins routes
   get "/admins/:id" => "admins#show"
+  get "/access/:id/allow" => "admins#allow"
+  get "/access/:id/deny" => "admins#deny"
 
 
 
