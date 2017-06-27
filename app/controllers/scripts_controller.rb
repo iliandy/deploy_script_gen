@@ -8,9 +8,22 @@ class ScriptsController < ApplicationController
   end
 
   def generate
-    
+    script = Script.new(script_params)
 
+    p script
+
+    if script.valid?
+      redirect_to "/admins/#{ current_user.id }"
+    else
+      flash[:msgs] = script.errors.full_messages
+      redirect_to "/scripts"
+    end
 
   end
+
+  private
+    def script_params
+      params.require(:script).permit(:stack, :project_directory, :github_repo, :server_ip)
+    end
 
 end
