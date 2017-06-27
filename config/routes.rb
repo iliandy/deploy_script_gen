@@ -5,11 +5,13 @@ Rails.application.routes.draw do
   # get "/users/:user_id/edit" => "users#edit"
   # put "/users/:user_id" => "users#update"
 
-  get "/scripts" => "users#scripts"
-
   # sessions routes
   post "/sessions" => "sessions#create"
   delete "/sessions/:id" => "sessions#destroy"
+
+  # scripts routes
+  get "/scripts" => "scripts#index"
+  post "/scripts/gen" => "scripts#generate"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

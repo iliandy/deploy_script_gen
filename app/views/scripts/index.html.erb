@@ -5,7 +5,7 @@
 <h3>Hi <%= @current_user.first_name %></h3>
 
 <p>Select deployment script to generate</p>
-<form class="" action="index.html" method="post">
+<form class="" action="/scripts/gen" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div class="row">
     <div class="input-field col s8">
@@ -19,21 +19,21 @@
 
   <div class="row">
     <div class="input-field col s8">
-      <label>Project Directory Name: </label>
+      <label>Project Directory Name:</label>
       <input type="text" name="proj_dir">
     </div>
   </div>
 
   <div class="row">
     <div class="input-field col s8">
-      <label>GitHub Repo URL: </label>
+      <label>GitHub Repo URL:</label>
       <input type="text" name="github_repo_url">
     </div>
   </div>
 
   <div class="row">
     <div class="input-field col s8">
-      <label>AWS Server IP address: </label>
+      <label>AWS Server IP address:</label>
       <input type="password" name="server_ip">
     </div>
   </div>
