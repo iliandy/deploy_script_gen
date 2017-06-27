@@ -9,7 +9,7 @@
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div class="row">
     <div class="input-field col s8">
-      <select name="stack">
+      <select name="script[stack]">
         <option>Python</option>
         <option>MEAN</option>
         <option>Ruby</option>
@@ -19,22 +19,22 @@
 
   <div class="row">
     <div class="input-field col s8">
-      <label>Project Directory Name:</label>
-      <input type="text" name="proj_dir">
+      <label for="proj_dir">Project Directory Name:</label>
+      <input id="proj_dir" type="text" name="script[project_directory]">
     </div>
   </div>
 
   <div class="row">
     <div class="input-field col s8">
-      <label>GitHub Repo URL:</label>
-      <input type="text" name="github_repo_url">
+      <label for="github_repo">GitHub Repo URL:</label>
+      <input id="github_repo" type="text" name="script[github_repo]">
     </div>
   </div>
 
   <div class="row">
     <div class="input-field col s8">
-      <label>AWS Server IP address:</label>
-      <input type="password" name="server_ip">
+      <label for="server_ip">AWS Server IP address:</label>
+      <input id="server_ip" type="text" name="script[server_ip]">
     </div>
   </div>
 
