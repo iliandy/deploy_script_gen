@@ -65,7 +65,7 @@ class ScriptsController < ApplicationController
       @python_script = "Python_script_#{current_user.email}.sh"
     end
 
-    if File.exist?"#{Rails.root}/public/Python_script_#{current_user.email}.sh"
+    if File.exist?"#{Rails.root}/public/Ruby_script_#{current_user.email}.sh"
       @ruby_script = "Ruby_script_#{current_user.email}.sh"
     end
   end

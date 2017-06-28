@@ -1,22 +1,4 @@
 <div class="row">
-	<div>
-		<% if @mean_script %>
-			<a href="">MEAN</a>
-		<% end %>
-	</div>
-
-	<div>
-		<% if @python_script %>
-			<a href="">Python</a>
-		<% end %>
-	</div>
-
-	<div>
-		<% if @ruby_script %>
-			<a href="">Ruby</a>
-		<% end %>
-	</div>
-
 	<div class="row">
 		<div class="input-field col s8">
 			<h3>MEAN Instruction:</h3>
@@ -35,4 +17,23 @@
 			<h3>Ruby Instruction:</h3>
 		</div>
 	</div>	
+	<div>
+		<% if @mean_script %>
+			<a href="<%= @mean_script %>">MEAN</a>
+		<% end %>
+	</div>
+
+	<div>
+		<% if @python_script %>
+			<a href="<%= @python_script %>">Python</a>
+		<% end %>
+	</div>
+
+	<div>
+		<% if @ruby_script %>
+			<a href="<%= @ruby_script %>">Ruby</a>
+		<% end %>
+	</div>
+
+
 </div>
