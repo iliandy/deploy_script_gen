@@ -1,5 +1,6 @@
 class ScriptsController < ApplicationController
-  before_action :user_authorized, only: [:index]
+  before_action :user_authorized, only: [:index, :download]
+  before_action :user_access, only: [:download]
 
   def str_replace(filepath, search_str, replace_str)
     File.write(f = filepath, File.read(f).gsub(search_str, replace_str))
@@ -8,7 +9,6 @@ class ScriptsController < ApplicationController
   def index
     @admin_ids = Admin.pluck(:user_id)
     @current_user = current_user
-    # render "index.html.erb"
   end
 
   def generate
@@ -56,9 +56,18 @@ class ScriptsController < ApplicationController
   end
 
   def download
-    @mean_script = "MEAN_script_#{current_user.email}.sh"
-    @python_script = "Python_script_#{current_user.email}.sh"
-    @ruby_script = "Ruby_script_#{current_user.email}.sh"   
+
+    if File.exist?"#{Rails.root}/public/MEAN_script_#{current_user.email}.sh"
+      @mean_script = "MEAN_script_#{current_user.email}.sh"
+    end
+
+    if File.exist?"#{Rails.root}/public/Python_script_#{current_user.email}.sh"
+      @python_script = "Python_script_#{current_user.email}.sh"
+    end
+
+    if File.exist?"#{Rails.root}/public/Python_script_#{current_user.email}.sh"
+      @ruby_script = "Ruby_script_#{current_user.email}.sh"
+    end
   end
 
   private
