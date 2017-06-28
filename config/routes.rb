@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   get "/admins/:id" => "admins#show"
   get "/access/:id/allow" => "admins#allow"
   get "/access/:id/deny" => "admins#deny"
-
+  
+  #unknown routes
+  get "*unknown_route", to: redirect("/")
 
 
   # The priority is based upon order of creation: first created -> highest priority.
