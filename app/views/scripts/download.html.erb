@@ -1,22 +1,111 @@
+| <a href="/scripts">Scripts Page</a>
+
 <div class="row">
 	<div class="row">
 		<div class="input-field col s8">
-			<h3>MEAN Instruction:</h3>
-			<h5></h5>
+			<h5>MEAN Script Instructions:</h5>
+			<ol>
+				<li>SSH into AWS server.</li>
+				<li>Create a new script.sh file with following:
+					<ul>
+						<li>sudo vim script.sh</li>
+						<li>Press "i" to insert input.</li>
+						<li>Paste copied content from your downloaded MEAN script.</li>
+						<li>Press "Esc, :x, Enter" to save content and exit VIM.</li>
+					</ul>
+				</li>
+				<li>Modify MEAN script into executable:
+					<ul>
+						<li>sudo chmod +x script.sh</li>
+					</ul>
+				</li>
+				<li>Run MEAN script:
+					<ul>
+						<li>./script.sh</li>
+					</ul>
+				</li>
+				<li>Confirm successful deployment with status "online" for mongod and server within PM2.</li>
+				<li>Deployed MEAN Project!</li>
+
+			</ol>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="input-field col s8">
-			<h3>Python Instruction:</h3>
+			<h5>Python Script Instructions:</h5>
+			<ol>
+				<li>SSH into AWS server.</li>
+				<li>Create a new script.sh file with following:
+					<ul>
+						<li>sudo vim script.sh</li>
+						<li>Press "i" to insert input.</li>
+						<li>Paste copied content from your downloaded Python script.</li>
+						<li>Press "Esc, :x, Enter" to save content and exit VIM.</li>
+					</ul>
+				</li>
+				<li>Modify Python script into executable:
+					<ul>
+						<li>sudo chmod +x script.sh</li>
+					</ul>
+				</li>
+				<li>Run Python script:
+					<ul>
+						<li>./script.sh</li>
+					</ul>
+				</li>
+				<li>Confirm successful deployment with following terminal messenging:
+					<ul>
+						<li>nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</li>
+						<li>nginx: configuration file /etc/nginx/nginx.conf test is successful</li>
+					</ul>
+				</li>
+				<li>Deployed Python Project!</li>
+
+			</ol>
+
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="input-field col s8">
-			<h3>Ruby Instruction:</h3>
+			<h5>Ruby Script Instructions:</h5>
+			<ol>
+				<li>SSH into AWS server.</li>
+				<li>Create a new script.sh file with following:
+					<ul>
+						<li>sudo vim script.sh</li>
+						<li>Press "i" to insert input.</li>
+						<li>Paste copied content from your downloaded Ruby script.</li>
+						<li>Press "Esc, :x, Enter" to save content and exit VIM.</li>
+					</ul>
+				</li>
+				<li>Modify Ruby script into executable:
+					<ul>
+						<li>sudo chmod +x script.sh</li>
+					</ul>
+				</li>
+				<li>Run Ruby script:
+					<ul>
+						<li>./script.sh</li>
+					</ul>
+				</li>
+				<li>Upon entering Phusion Passenger Nginx module installer:
+					<ul>
+						<li>Press "Enter"</li>
+						<li>Move up/down and press "space bar" to select only "Ruby", "Node.js"</li>
+						<li>Press "Enter"</li>
+						<li>Press "1, Enter"</li>
+						<li>Press "Enter"</li>
+					</ul>
+				</li>
+				<li>Confirm successful deployment with 2 [ OK ] statuses for stopping/starting Nginx Server.</li>
+				<li>Deployed Ruby Project!</li>
+
+			</ol>
 		</div>
-	</div>	
+	</div>
+  
 	<div>
 		<% if @mean_script %>
 			<a href="<%= @mean_script %>">Download MEAN Script</a>
@@ -34,6 +123,5 @@
 			<a href="<%= @ruby_script %>">Download Ruby Script</a>
 		<% end %>
 	</div>
-
 
 </div>
