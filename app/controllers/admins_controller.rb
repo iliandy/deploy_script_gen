@@ -1,4 +1,6 @@
 class AdminsController < ApplicationController
+	before_action :user_authorized, only: [:show]
+	before_action :instructor_access, only: [:show]
 	def show
 		@admin = User.find(params[:id])
 		admin_ids = Admin.pluck(:user_id)
