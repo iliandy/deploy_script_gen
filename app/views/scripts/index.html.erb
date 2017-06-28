@@ -9,10 +9,10 @@
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div class="row">
     <div class="input-field col s8">
-      <select name="script[stack]">
-        <option>Python</option>
-        <option>MEAN</option>
-        <option>Ruby</option>
+      <select name="script[stack]" id="stack">
+        <option value="0">Ruby</option>
+        <option value="1">Python</option>
+        <option value="2">MEAN</option>
       </select>
     </div>
   </div>
@@ -21,6 +21,13 @@
     <div class="input-field col s8">
       <label for="proj_dir">Project Directory Name:</label>
       <input id="proj_dir" type="text" name="script[project_directory]">
+    </div>
+  </div>
+
+  <div class="row" id="app-field" style="display:none;">
+    <div class="input-field col s8">
+      <label>Main app name:</label>
+      <input type="text" name="script[app_directory]">
     </div>
   </div>
 
