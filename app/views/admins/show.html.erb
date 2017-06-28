@@ -1,4 +1,3 @@
-
 | <a href="/scripts">Scripts Page</a>
 
 <h2>Hi <%= @admin.first_name %>!</h2>
@@ -22,11 +21,11 @@
 			<td><%= student.first_name %></td>
 			<td><%= student.last_name %></td>
 			<td>
-			<%if student.access == "t"%>
-				<a href="/access/<%=student.id%>/deny">Remove Access</a>
-			<%else%>
-				<a href="/access/<%=student.id%>/allow">Allow Access</a>
-			<%end%>		
+			<% if student.access == "t" %>
+				<a href="/access/<%= student.id %>/deny">Remove Access</a>
+			<% else %>
+				<a href="/access/<%= student.id %>/allow">Allow Access</a>
+			<% end %>
 			</td>
 		</tr>
 	<% end %>

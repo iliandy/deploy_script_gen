@@ -1,7 +1,7 @@
 server_name="server {
     listen 80;
     location / {
-        proxy_pass http://$ip_addr:8000;
+        proxy_pass http://1.1.1.1:8000;
         proxy_http_version 1.1;
         proxy_set_header Upgrade \$http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -9,7 +9,7 @@ server_name="server {
         proxy_cache_bypass \$http_upgrade;
     }
 }"
-destdir=/etc/nginx/sites-available/$project_dir
+destdir=/etc/nginx/sites-available/@@@@@@@@@@@@@@@proj_dir
 
 sudo apt-get update
 sudo apt-get install -y build-essential openssl libssl-dev pkg-config
@@ -22,18 +22,18 @@ sudo apt-get install nginx
 sudo apt-get install git
 sudo apt-get update
 cd /var/www
-sudo git clone $url
+sudo git clone @@@@@@@repo
 
 cd /etc/nginx/sites-available/
 sudo rm default
-sudo touch $project_dir
+sudo touch @@@@@@@@@@@@@@@proj_dir
 sudo sh -c "echo '$server_name' >> '$destdir'"
-sudo ln -s /etc/nginx/sites-available/$project_dir /etc/nginx/sites-enabled/$project_dir
+sudo ln -s /etc/nginx/sites-available/@@@@@@@@@@@@@@@proj_dir /etc/nginx/sites-enabled/@@@@@@@@@@@@@@@proj_dir
 cd ../sites-enabled/
 sudo rm default
 sudo npm install pm2 -g
 sudo service nginx restart
-cd /var/www/$project_dir/
+cd /var/www/@@@@@@@@@@@@@@@proj_dir/
 sudo npm install
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
 echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ub... xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/source$
