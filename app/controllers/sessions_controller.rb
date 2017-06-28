@@ -13,6 +13,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    # delete current user scripts upon logout
+    Dir.glob("#{Rails.root}/public/*#{current_user.email}.sh").each { |file| File.delete(file) }
     reset_session
     redirect_to "/"
   end

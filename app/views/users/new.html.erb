@@ -25,13 +25,11 @@
 <form action="/users" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div class="row">
-    <div class="input-field col s8">
+    <div class="input-field col s4">
       <label for="first_name">First Name: </label>
       <input id="first_name" type="text" name="user[first_name]">
     </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s8">
+    <div class="input-field col s4">
       <label for="last_name">Last Name: </label>
       <input id="last_name" type="text" name="user[last_name]">
     </div>
@@ -43,13 +41,11 @@
     </div>
   </div>
   <div class="row">
-    <div class="input-field col s8">
+    <div class="input-field col s4">
       <label for="password">Password: </label>
       <input id="password" type="password" name="user[password]">
     </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s8">
+    <div class="input-field col s4">
       <label for="password_conf">Password Confirmation: </label>
       <input id="password_conf" type="password" name="user[password_confirmation]">
     </div>
@@ -80,4 +76,3 @@
     <i class="material-icons right">send</i>
   </button>
 </form>
-
