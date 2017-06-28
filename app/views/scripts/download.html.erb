@@ -1,24 +1,6 @@
 | <a href="/scripts">Scripts Page</a>
 
 <div class="row">
-	<div>
-		<% if @mean_script %>
-			<a href="">MEAN</a>
-		<% end %>
-	</div>
-
-	<div>
-		<% if @python_script %>
-			<a href="">Python</a>
-		<% end %>
-	</div>
-
-	<div>
-		<% if @ruby_script %>
-			<a href="">Ruby</a>
-		<% end %>
-	</div>
-
 	<div class="row">
 		<div class="input-field col s8">
 			<h5>MEAN Script Instructions:</h5>
@@ -123,4 +105,23 @@
 			</ol>
 		</div>
 	</div>
+  
+	<div>
+		<% if @mean_script %>
+			<a href="<%= @mean_script %>">Download MEAN Script</a>
+		<% end %>
+	</div>
+
+	<div>
+		<% if @python_script %>
+			<a href="<%= @python_script %>">Download Python Script</a>
+		<% end %>
+	</div>
+
+	<div>
+		<% if @ruby_script %>
+			<a href="<%= @ruby_script %>">Download Ruby Script</a>
+		<% end %>
+	</div>
+
 </div>
