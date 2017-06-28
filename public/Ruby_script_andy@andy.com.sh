@@ -1,9 +1,17 @@
+echo "Enter IP address of server."
+read -p "IP address: " ip_addr
+echo "Enter URL of GitHub repo to clone (without .git extension), ie 'https://github.com/<username>/<repo>'."
+read -p "URL: " url
+url=@@@@@@@@@@repo
+project_dir="${url##*/}"
+echo @@@@@@@@@@@@@project_dir
+
 server_config="server {
     listen 80;
-    server_name $ip_addr;
+    server_name 3.3.3.3;
     passenger_enabled on;
     passenger_app_env development;
-    root /var/www/$project_dir/public;
+    root /var/www/@@@@@@@@@@@@@project_dir/public;
 }"
 
 dest_dir=/etc/nginx/sites-available/rails.conf
@@ -37,12 +45,12 @@ sudo apt-get install git
 cd /var
 sudo mkdir www
 cd www
-sudo git clone $url
-sudo chown -R ubuntu $project_dir
-cd $project_dir
+sudo git clone @@@@@@@@@@repo
+sudo chown -R ubuntu @@@@@@@@@@@@@project_dir
+cd @@@@@@@@@@@@@project_dir
 bundle install
 sudo touch log/development.log
-sudo chmod 0666 /var/www/$project_dir/log/development.log
+sudo chmod 0666 /var/www/@@@@@@@@@@@@@project_dir/log/development.log
 rake db:create:all
 rake db:migrate
 sudo wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx
@@ -56,9 +64,4 @@ cd /etc/nginx
 sudo mkdir sites-available
 sudo mkdir sites-enabled
 cd conf
-sudo sed -i "83a include \/etc\/nginx\/sites-enabled\/*;" nginx.conf
-cd /etc/nginx/sites-available
-sudo touch rails.conf
-sudo sh -c "echo '$server_config' >> '$dest_dir'"
-sudo ln -s /etc/nginx/sites-available/rails.conf /etc/nginx/sites-enabled/rails.conf
-sudo service nginx restart
+sudo sed -i "83a include \/etc\/

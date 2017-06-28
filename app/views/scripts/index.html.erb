@@ -4,15 +4,15 @@
 
 <h3>Hi <%= @current_user.first_name %></h3>
 
-<p>Select deployment script to generate</p>
+<p>Select deployment script to generate...</p>
 <form class="" action="/scripts/gen" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div class="row">
     <div class="input-field col s8">
       <select name="script[stack]" id="stack">
-        <option value="0">Ruby</option>
-        <option value="1">Python</option>
-        <option value="2">MEAN</option>
+        <option value="MEAN">MEAN</option>
+        <option value="Python">Python</option>
+        <option value="Ruby">Ruby</option>
       </select>
     </div>
   </div>
@@ -26,8 +26,8 @@
 
   <div class="row" id="app-field" style="display:none;">
     <div class="input-field col s8">
-      <label>Main app name:</label>
-      <input type="text" name="script[app_directory]">
+      <label for="main_app">Main App Name:</label>
+      <input id="main_app" type="text" name="script[app_directory]">
     </div>
   </div>
 
@@ -45,7 +45,13 @@
     </div>
   </div>
 
-  <button class="btn waves-effect waves-light" type="submit" name="action">Generate Script
-    <i class="material-icons right">send</i>
-  </button>
+  <% if @current_user.access == "t" %>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Generate Script
+      <i class="material-icons right">send</i>
+    </button>
+  <% else %>
+    <a class="btn disabled">Generate Script</a>
+    <p>(Request access from your instructor)</p>
+  <% end %>
+
 </form>

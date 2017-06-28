@@ -13,39 +13,53 @@ class ScriptsController < ApplicationController
 
   def generate
     script = Script.new(script_params)
-    p script
 
     if script.valid?
       require "tempfile"
       require "fileutils"
       scripts_path = "#{Rails.root}/app/assets/scripts"
 
-      temp_file = Tempfile.new("temp_script.sh")
+      if script[:stack] == "MEAN"
+        Tempfile.new("MEAN_script_#{current_user.email}.sh")
+        temp_script_path = "#{Rails.root}/public/MEAN_script_#{current_user.email}.sh"
+        FileUtils.copy_file("#{scripts_path}/mean_deployment_script.sh", temp_script_path)
 
-      if script[:stack] == "Python"
-        p "Python"
-      elsif script[:stack] == "MEAN"
-        p "Mean"
+        str_replace(temp_script_path, "$project_dir", script[:project_directory])
+        str_replace(temp_script_path, "$url", script[:github_repo])
+        str_replace(temp_script_path, "$ip_addr", script[:server_ip])
+
+      elsif script[:stack] == "Python"
+        Tempfile.new("Python_script_#{current_user.email}.sh")
+        temp_script_path = "#{Rails.root}/public/Python_script_#{current_user.email}.sh"
+        FileUtils.copy_file("#{scripts_path}/python_deployment_script.sh", temp_script_path)
+
+        str_replace(temp_script_path, "$project_dir", script[:project_directory])
+        str_replace(temp_script_path, "$app_dir", script[:app_directory])
+        str_replace(temp_script_path, "$url", script[:github_repo])
+        str_replace(temp_script_path, "$ip_addr", script[:server_ip])
+
       elsif script[:stack] == "Ruby"
-        FileUtils.copy_file("#{scripts_path}/ruby_deployment_script.sh", "#{scripts_path}/temp_script.sh")
+        Tempfile.new("Ruby_script_#{current_user.email}.sh")
+        temp_script_path = "#{Rails.root}/public/Ruby_script_#{current_user.email}.sh"
+        FileUtils.copy_file("#{scripts_path}/ruby_deployment_script.sh", temp_script_path)
+
+        str_replace(temp_script_path, "$project_dir", script[:project_directory])
+        str_replace(temp_script_path, "$url", script[:github_repo])
+        str_replace(temp_script_path, "$ip_addr", script[:server_ip])
       end
 
-      str_replace("#{scripts_path}/temp_script.sh", "$project_dir", script[:project_directory])
-      str_replace("#{scripts_path}/temp_script.sh", "$url", script[:github_repo])
-      str_replace("#{scripts_path}/temp_script.sh", "$ip_addr", script[:server_ip])
 
-
-      redirect_to "/admins/#{ current_user.id }"
     else
       flash[:msgs] = script.errors.full_messages
-      redirect_to "/scripts"
     end
+
+    redirect_to "/scripts"
 
   end
 
   private
     def script_params
-      params.require(:script).permit(:stack, :project_directory, :github_repo, :server_ip)
+      params.require(:script).permit(:stack, :project_directory, :app_directory, :github_repo, :server_ip)
     end
 
 end
