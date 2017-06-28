@@ -1,5 +1,21 @@
-| <a href="/scripts">Scripts Page</a>
 
+	<div id="download_buttons" class="row">
+		<% if @mean_script %>
+			<a href="<%= @mean_script %>"><button class="btn"> Download MEAN Script</button></a>
+		<% end %>
+
+
+
+		<% if @python_script %>
+			<a href="<%= @python_script %>"><button class="btn">Download Python Script</button></a>
+		<% end %>
+
+
+
+		<% if @ruby_script %>
+			<a href="<%= @ruby_script %>"><button class="btn">Download Ruby Script</button></a>
+		<% end %>
+	</div>
 <div class="row">
 	<div class="row">
 		<div class="input-field col s8">
@@ -96,6 +112,7 @@
 						<li>Move up/down and press "space bar" to select only "Ruby", "Node.js"</li>
 						<li>Press "Enter"</li>
 						<li>Press "1, Enter"</li>
+						<li>Specify prefix directory: "/etc/nginx"</li>
 						<li>Press "Enter"</li>
 					</ul>
 				</li>
@@ -106,22 +123,6 @@
 		</div>
 	</div>
   
-	<div>
-		<% if @mean_script %>
-			<a href="<%= @mean_script %>">Download MEAN Script</a>
-		<% end %>
-	</div>
 
-	<div>
-		<% if @python_script %>
-			<a href="<%= @python_script %>">Download Python Script</a>
-		<% end %>
-	</div>
-
-	<div>
-		<% if @ruby_script %>
-			<a href="<%= @ruby_script %>">Download Ruby Script</a>
-		<% end %>
-	</div>
 
 </div>

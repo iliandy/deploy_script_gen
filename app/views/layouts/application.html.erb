@@ -18,11 +18,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
+  
   <div class="container">
     <% if session[:user_id] %>
-    <a href="/sessions/<%= session[:user_id] %>" data-method="delete">Logout</a>
-    <% end %>
-
+      <a href="/sessions/<%= session[:user_id] %>" data-method="delete">Logout</a>
+      |
+      <a href="/scripts">Scripts Page</a>
+    <%end%>
     <%= yield %>
 
     <div class="msgs red-text">

@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+ #download_buttons{
+ 	margin-top: 2%;
+ }
