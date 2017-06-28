@@ -9,7 +9,7 @@ server_name="server {
         proxy_cache_bypass \$http_upgrade;
     }
 }"
-destdir=/etc/nginx/sites-available/fdsfdsf
+destdir=/etc/nginx/sites-available/dsfdsf
 
 sudo apt-get update
 sudo apt-get install -y build-essential openssl libssl-dev pkg-config
@@ -22,18 +22,18 @@ sudo apt-get install nginx
 sudo apt-get install git
 sudo apt-get update
 cd /var/www
-sudo git clone dsfdsfds
+sudo git clone fdsfsdfsd
 
 cd /etc/nginx/sites-available/
 sudo rm default
-sudo touch fdsfdsf
+sudo touch dsfdsf
 sudo sh -c "echo '$server_name' >> '$destdir'"
-sudo ln -s /etc/nginx/sites-available/fdsfdsf /etc/nginx/sites-enabled/fdsfdsf
+sudo ln -s /etc/nginx/sites-available/dsfdsf /etc/nginx/sites-enabled/dsfdsf
 cd ../sites-enabled/
 sudo rm default
 sudo npm install pm2 -g
 sudo service nginx restart
-cd /var/www/fdsfdsf/
+cd /var/www/dsfdsf/
 sudo npm install
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
 echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ub... xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/source$
