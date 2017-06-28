@@ -44,6 +44,18 @@
         // Animation complete.
       });
     });
+
+    $('#stack').on('change', function() {
+      if ( this.value == '1')
+      //.....................^.......
+      {
+        $("#app-field").show();
+      }
+      else
+      {
+        $("#app-field").hide();
+      }
+     });
   </script>
   <!-- Compiled and minified JavaScript -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
