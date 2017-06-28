@@ -47,14 +47,18 @@ class ScriptsController < ApplicationController
         str_replace(temp_script_path, "$url", script[:github_repo])
         str_replace(temp_script_path, "$ip_addr", script[:server_ip])
       end
-
+      redirect_to "/public"
 
     else
       flash[:msgs] = script.errors.full_messages
+      redirect_to "/scripts"
     end
+  end
 
-    redirect_to "/scripts"
-
+  def download
+    @mean_script = "MEAN_script_#{current_user.email}.sh"
+    @python_script = "Python_script_#{current_user.email}.sh"
+    @ruby_script = "Ruby_script_#{current_user.email}.sh"   
   end
 
   private

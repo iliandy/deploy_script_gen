@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   # scripts routes
   get "/scripts" => "scripts#index"
   post "/scripts/gen" => "scripts#generate"
+  get "/public" => "scripts#download"
 
   #admins routes
   get "/admins/:id" => "admins#show"
