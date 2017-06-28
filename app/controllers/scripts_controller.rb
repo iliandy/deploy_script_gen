@@ -56,9 +56,18 @@ class ScriptsController < ApplicationController
   end
 
   def download
-    @mean_script = "MEAN_script_#{current_user.email}.sh"
-    @python_script = "Python_script_#{current_user.email}.sh"
-    @ruby_script = "Ruby_script_#{current_user.email}.sh"   
+
+    if File.exist?"#{Rails.root}/public/MEAN_script_#{current_user.email}.sh"
+      @mean_script = "MEAN_script_#{current_user.email}.sh"
+    end
+
+    if File.exist?"#{Rails.root}/public/Python_script_#{current_user.email}.sh"
+      @python_script = "Python_script_#{current_user.email}.sh"
+    end
+
+    if File.exist?"#{Rails.root}/public/Python_script_#{current_user.email}.sh"
+      @ruby_script = "Ruby_script_#{current_user.email}.sh"
+    end
   end
 
   private
