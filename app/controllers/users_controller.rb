@@ -6,6 +6,9 @@ class UsersController < ApplicationController
     # render "new.html.erb"
   end
 
+  def about
+  end
+  
   def create
     if secret_params[:password] != ''
       key = SecretKey.last
