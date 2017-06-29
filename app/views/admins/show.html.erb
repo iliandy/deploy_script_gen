@@ -1,12 +1,9 @@
 
+<div class="row">
+<h4>Hi <%= @admin.first_name %>!</h4>
 
-<h2>Hi <%= @admin.first_name %>!</h2>
+<h5>Students attending <%= @admin.dojo.name %></h5>
 
-<!-- <h4>Students approved </h4>
-
-<h4>Students awaiting approval</h4> -->
-
-<h4>Students attending <%= @admin.dojo.name %></h4>
 <table>
 	<thead>
 		<tr>
@@ -31,3 +28,4 @@
 	<% end %>
 	</tbody>
 </table>
+</div>
