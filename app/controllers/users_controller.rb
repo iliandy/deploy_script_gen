@@ -19,7 +19,7 @@ class UsersController < ApplicationController
           flash[:msgs] = user.errors.full_messages
           redirect_to '/'
         end
-      else  
+      else
         flash[:msgs] = ['Invalid admin password']
         redirect_to '/'
       end
@@ -35,23 +35,28 @@ class UsersController < ApplicationController
     end
   end
 
-  # def edit
-  #   @current_user = current_user
-  #   # render "edit.html.erb"
-  # end
-  #
-  # def update
-  #   user = User.update(params[:user_id], user_update_params.merge(state: State.find(user_update_params[:state])))
-  #
-  #   if user.valid?
-  #     flash[:msgs] = ["#{user_update_params[:first_name]} was successfully updated..."]
-  #     redirect_to "/scripts"
-  #   else
-  #     flash[:msgs] = user.errors.full_messages
-  #     redirect_to "/users/#{params[:user_id]}/edit"
-  #   end
-  #
-  # end
+  def destroy
+    User.destroy(params[:user_id])
+    redirect_to :back
+  end
+
+  def edit
+    @current_user = current_user
+    @dojos = Dojo.all
+    # render "edit.html.erb"
+  end
+
+  def update
+    user = User.update(params[:user_id], user_update_params.merge(dojo: Dojo.find(user_update_params[:dojo])))
+
+    if user.valid?
+      flash[:msgs] = ["#{user_update_params[:first_name]} was successfully updated..."]
+    else
+      flash[:msgs] = user.errors.full_messages
+    end
+
+    redirect_to :back
+  end
 
   private
     def user_params
@@ -62,7 +67,7 @@ class UsersController < ApplicationController
       params.require(:secret_key).permit(:password)
     end
 
-    # def user_update_params
-    #   params.require(:user).permit(:first_name, :last_name, :email, :dojo)
-    # end
+    def user_update_params
+      params.require(:user).permit(:first_name, :last_name, :email, :dojo)
+    end
 end
