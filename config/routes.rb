@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   # users routes
   root "users#new"
   post "/users" => "users#create"
-  # get "/users/:user_id/edit" => "users#edit"
-  # put "/users/:user_id" => "users#update"
+  delete "/users/:user_id" => "users#destroy"
+  get "/users/:user_id/edit" => "users#edit"
+  put "/users/:user_id" => "users#update"
   get "/about" => "users#about"
 
   # sessions routes
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
   get "/admins/:id" => "admins#show"
   get "/access/:id/allow" => "admins#allow"
   get "/access/:id/deny" => "admins#deny"
-  
+
   #unknown routes
   get "*unknown_route", to: redirect("/")
 
