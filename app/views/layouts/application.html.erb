@@ -23,11 +23,11 @@
         <a href="#"><span id="logo">Turbo Deployments</span></a>
           <ul id="nav-mobile" class="right hide-on-small-and-down"> 
           <% if session[:user_id] %> 
-            <li><a href="/sessions/<%= session[:user_id] %>" data-method="delete">Logout</a></li>
             <li><a href="/scripts">Scripts Page</a></li>
             <% if get_admin_ids.include? session[:user_id] %>
-            <li><a href="admins/<%= session[:user_id] %>">Admin Dashboard</a></li>
+              <li><a href="admins/<%= session[:user_id] %>">Admin Dashboard</a></li>
             <% end %>
+            <li><a href="/sessions/<%= session[:user_id] %>" data-method="delete">Logout</a></li>
           <% end %>
         </ul>
       </div>
