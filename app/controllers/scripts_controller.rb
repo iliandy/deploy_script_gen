@@ -7,7 +7,6 @@ class ScriptsController < ApplicationController
   end
 
   def index
-    @admin_ids = Admin.pluck(:user_id)
     @current_user = current_user
   end
 
