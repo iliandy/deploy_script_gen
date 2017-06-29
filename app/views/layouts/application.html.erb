@@ -5,12 +5,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
-  <!--Let browser know website is optimized for mobile-->
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"/> -->
-  <!--Import jQuery before materialize.js-->
-  <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
-  <!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
-
+<!--   Import social media logos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>DeployScriptGen</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -22,13 +18,14 @@
       <div class="nav-wrapper green">
         <a href="#"><span id="logo">Turbo Deployments</span></a>
           <ul id="nav-mobile" class="right hide-on-small-and-down"> 
-          <% if session[:user_id] %> 
-            <li><a href="/scripts">Scripts Page</a></li>
-            <% if get_admin_ids.include? session[:user_id] %>
-              <li><a href="admins/<%= session[:user_id] %>">Admin Dashboard</a></li>
+            <li><a href="/about">About</a></li>
+            <% if session[:user_id] %> 
+              <li><a href="/scripts">Scripts Page</a></li>
+              <% if get_admin_ids.include? session[:user_id] %>
+                <li><a href="admins/<%= session[:user_id] %>">Admin Dashboard</a></li>
+              <% end %>
+              <li><a href="/sessions/<%= session[:user_id] %>" data-method="delete">Logout</a></li>
             <% end %>
-            <li><a href="/sessions/<%= session[:user_id] %>" data-method="delete">Logout</a></li>
-          <% end %>
         </ul>
       </div>
     </nav>
@@ -42,6 +39,23 @@
         <% end %>
       </div>
   </div>
+ <!--  <footer id="footer" class="page-footer">
+      <div class="container">
+          <div class="row">
+            <div class="col l6 s12">
+              <h5 class="white-text">Turbo Deployments</h5>
+              <p class="grey-text text-lighten-4">A script generator for Python, MEAN, and Ruby On Rails deployment.</p>
+            </div>
+            <div class="col l4 offset-l2 s12">
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
+                </ul>
+            </div>
+          </div>
+        </div>
+          <div class="footer-copyright">
+          </div>
+      </footer> -->
 
   <script type="text/javascript">
     $(document).ready(function() {
