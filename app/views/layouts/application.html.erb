@@ -16,11 +16,13 @@
 <body>
     <nav>
       <div class="nav-wrapper green">
-        <a href="#"><span id="logo">Turbo Deployments</span></a>
+        <a href="/"><span id="logo">Turbo Deployments</span></a>
           <ul id="nav-mobile" class="right hide-on-small-and-down"> 
             <li><a href="/about">About</a></li>
             <% if session[:user_id] %> 
-              <li><a href="/scripts">Scripts Page</a></li>
+              <li><a href="/scripts">Generate Script</a></li>
+              <li><a href="/users/<%= session[:user_id] %>/edit">Edit Profile</a></li>
+              <li><a href="/public">Script Downloads</a>
               <% if get_admin_ids.include? session[:user_id] %>
                 <li><a href="admins/<%= session[:user_id] %>">Admin Dashboard</a></li>
               <% end %>

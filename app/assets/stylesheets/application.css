@@ -13,25 +13,37 @@
  *= require_tree .
  *= require_self
  */
- #download_buttons{
- 	margin-top: 2%;
- }
- #logo{
- 	margin-left: 2%;
- 	font-size: 2rem;
- }
- #footer{
- 	margin-top: 5%;
- }
- .team-pic{
- 	width: 65%;
- 	border-radius: 100%;
- }
- .tech-icon{
+#download_buttons{
+	margin-top: 2%;
+}
+#logo{
+	margin-left: 2%;
+	font-size: 2rem;
+}
+#footer{
+	margin-top: 5%;
+}
+.team-pic{
+	width: 65%;
+	border-radius: 100%;
+}
+.tech-icon{
 	width: 4rem;
 }
 .profile-container{
 	text-align: center;
 	margin-right: 5%;
 	margin-top: 5%;
+}
+form{
+	margin-bottom: 5%;
+}
+.bold{
+	font-weight: bold;
+}
+#rails-icon{
+	width: 4.3rem;
+}
+.member-info{
+	
 }

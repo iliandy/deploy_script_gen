@@ -1,6 +1,4 @@
-| <a href="admins/<%= @current_user.id %>">Admin Dashboard</a>
-
-<h3>Edit <%= @current_user.first_name %>'s Profile</h3>
+<h4>Edit <%= @current_user.first_name %>'s Profile</h4>
 <form action="/users/<%= @current_user.id %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="put">
@@ -30,7 +28,7 @@
     </div>
   </div>
 
-  <button class="btn waves-effect waves-light" type="submit" name="action">Update User
+  <button class="btn waves-effect waves-light green darken-4" type="submit" name="action">Update User
     <i class="material-icons right">send</i>
   </button>
 </form>
