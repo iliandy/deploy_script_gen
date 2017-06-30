@@ -1,21 +1,17 @@
+<div id="download_buttons" class="row">
+	<% if @mean_script %>
+		<a href="<%= @mean_script %>"><button class="btn"> Download MEAN Script</button></a>
+	<% end %>
 
-	<div id="download_buttons" class="row">
-		<% if @mean_script %>
-			<a href="<%= @mean_script %>"><button class="btn"> Download MEAN Script</button></a>
-		<% end %>
+	<% if @python_script %>
+		<a href="<%= @python_script %>"><button class="btn">Download Python Script</button></a>
+	<% end %>
 
+	<% if @ruby_script %>
+		<a href="<%= @ruby_script %>"><button class="btn">Download Ruby Script</button></a>
+	<% end %>
+</div>
 
-
-		<% if @python_script %>
-			<a href="<%= @python_script %>"><button class="btn">Download Python Script</button></a>
-		<% end %>
-
-
-
-		<% if @ruby_script %>
-			<a href="<%= @ruby_script %>"><button class="btn">Download Ruby Script</button></a>
-		<% end %>
-	</div>
 <div class="row">
 	<div class="row">
 		<div class="input-field col s8">
@@ -122,7 +118,7 @@
 			</ol>
 		</div>
 	</div>
-  
+
 
 
 </div>

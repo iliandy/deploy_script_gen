@@ -1,87 +1,72 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
-<!--   Import social media logos -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>DeployScriptGen</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
-<body>
-    <nav>
-      <div class="nav-wrapper green">
-        <a href="/"><span id="logo">Turbo Deployments</span></a>
-          <ul id="nav-mobile" class="right hide-on-small-and-down"> 
-            <li><a href="/about">About</a></li>
-            <% if session[:user_id] %> 
-              <li><a href="/scripts">Generate Script</a></li>
-              <li><a href="/users/<%= session[:user_id] %>/edit">Edit Profile</a></li>
-              <li><a href="/public">Script Downloads</a>
-              <% if get_admin_ids.include? session[:user_id] %>
-                <li><a href="admins/<%= session[:user_id] %>">Admin Dashboard</a></li>
+  <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <!-- Import social media logos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>DeployScriptGen</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+      <!-- navigation bar -->
+      <nav>
+        <div class="nav-wrapper green">
+          <a href="/"><span id="logo">Turbo Deployments</span></a>
+            <ul id="nav-mobile" class="right hide-on-small-and-down">
+              <li><a href="/about">About</a></li>
+              <% if session[:user_id] %>
+                <li><a href="/scripts">Generate Script</a></li>
+                <li><a href="/users/<%= session[:user_id] %>/edit">Edit Profile</a></li>
+                <li><a href="/public">Script Downloads</a>
+                <% if get_admin_ids.include? session[:user_id] %>
+                  <li><a href="admins/<%= session[:user_id] %>">Admin Dashboard</a></li>
+                <% end %>
+                <li><a href="/sessions/<%= session[:user_id] %>" data-method="delete">Logout</a></li>
               <% end %>
-              <li><a href="/sessions/<%= session[:user_id] %>" data-method="delete">Logout</a></li>
-            <% end %>
-        </ul>
-      </div>
-    </nav>
-    <div class="container">
-      <%= yield %>
-      <div class="msgs red-text">
-        <% if flash[:msgs] %>
-          <% flash[:msgs].each do |msg| %>
-            <p><%= msg %></p>
-          <% end %>
-        <% end %>
-      </div>
-  </div>
- <!--  <footer id="footer" class="page-footer">
-      <div class="container">
-          <div class="row">
-            <div class="col l6 s12">
-              <h5 class="white-text">Turbo Deployments</h5>
-              <p class="grey-text text-lighten-4">A script generator for Python, MEAN, and Ruby On Rails deployment.</p>
-            </div>
-            <div class="col l4 offset-l2 s12">
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">About</a></li>
-                </ul>
-            </div>
-          </div>
+          </ul>
         </div>
-          <div class="footer-copyright">
-          </div>
-      </footer> -->
+      </nav>
 
-  <script type="text/javascript">
-    $(document).ready(function() {
-     $('select').material_select();
-    });
+      <div class="container">
+        <%= yield %>
+        <!-- status/error messages -->
+        <div class="msgs red-text">
+          <% if flash[:msgs] %>
+            <% flash[:msgs].each do |msg| %>
+              <p><%= msg %></p>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
 
-    $( "#incs" ).click(function() {
-      $( "#ins-div" ).slideToggle( "slow", function() {
-        // Animation complete.
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('select').material_select();
       });
-    });
-
-    $('#stack').on('change', function() {
-      if ( this.value == "Python") {
-        $("#app-field").show();
-      }
-      else {
-        $("#app-field").hide();
-      }
-    });
-  </script>
-  <!-- Compiled and minified JavaScript -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
-</body>
-
+      // toggle admin secret key password input field for user registration
+      $("#incs").click(function() {
+        $("#ins-div").slideToggle( "slow", function() {
+          // Animation complete.
+        });
+      });
+      // display additional app directory input field for Python deployments
+      $('#stack').on('change', function() {
+        if (this.value == "Python") {
+          $("#app-field").show();
+        }
+        else {
+          $("#app-field").hide();
+        }
+      });
+    </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+  </body>
 
 </html>
