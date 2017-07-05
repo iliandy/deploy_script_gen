@@ -44,6 +44,12 @@ form{
 #rails-icon{
 	width: 4.3rem;
 }
-.member-info{
-	
+.stack_name_width{
+	display: inline-block;
+	font-weight: bold;
+	width: 55px;
+	vertical-align: top;
+}
+.python_statuses{
+	display: inline-block;
 }
