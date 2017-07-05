@@ -9,11 +9,11 @@ class UsersController < ApplicationController
 
   def about
   end
-  
+
   def create
     if secret_params[:password] != ''
       key = SecretKey.last
-      if key.authenticate(secret_params[:password])
+      if key and key.authenticate(secret_params[:password])
         user = User.create(user_params.merge(dojo: Dojo.find(user_params[:dojo]), access: true))
         if user.valid?
           session[:user_id] = user.id
