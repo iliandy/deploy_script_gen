@@ -3,7 +3,7 @@ class AdminsController < ApplicationController
 	before_action :instructor_access, only: [:show]
 	def show
 		@admin = User.find(params[:id])
-		@students = User.where(dojo: @admin.dojo).where.not(id:get_admin_ids)
+		@students = User.where(dojo: @admin.dojo).where.not(id:get_admin_ids).order('last_name ASC')
 	end
   
 	def allow
