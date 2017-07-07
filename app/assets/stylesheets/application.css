@@ -16,6 +16,10 @@
 .tech-icon{
 	width: 4rem;
 }
+.black_border{
+	border: 5px solid #000000;
+	border-radius: 50%;
+}
 #team-des{
 	margin-bottom: 5%;
 }
@@ -40,7 +44,13 @@ form{
 .python_statuses{
 	display: inline-block;
 }
-
 .contact-div{
 	margin-top: 10px;
+}
+.contact-icon{
+	font-size: 2rem;
+	margin: 5% 5% 0 5%;
+}
+.contact-div a{
+	color: #007bb6;
 }
