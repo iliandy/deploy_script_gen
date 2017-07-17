@@ -5,17 +5,17 @@
   <input type="hidden" name="_method" value="put">
   <div class="row">
     <div class="input-field col s4">
-      <label for="first_name">First Name: </label>
+      <label class="active" for="first_name">First Name: </label>
       <input id="first_name" type="text" name="user[first_name]" value="<%= @current_user.first_name %>">
     </div>
     <div class="input-field col s4">
-      <label for="last_name">Last Name: </label>
+      <label class="active" for="last_name">Last Name: </label>
       <input id="last_name" type="text" name="user[last_name]" value="<%= @current_user.last_name %>">
     </div>
   </div>
   <div class="row">
     <div class="input-field col s8">
-      <label for="email">E-mail: </label>
+      <label class="active" for="email">E-mail: </label>
       <input id="email" type="text" name="user[email]" value="<%= @current_user.email %>">
     </div>
   </div>
