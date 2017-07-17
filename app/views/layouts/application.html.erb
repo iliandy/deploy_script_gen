@@ -7,36 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
     <!-- Import social media logos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>Turbo Deployments</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-
-    <script type="text/javascript">
-      $(document).ready(function() {
-        // Materialize initializations
-        $('select').material_select();
-        $(".button-collapse").sideNav({
-          edge: "right",       // sideNav slides from right side after clicking hamburger icon
-          closeOnClick: true   // Closes side-nav on <a> clicks, useful for Angular/Meteor
-        });
-        // toggle admin secret key password input field for user registration
-        $("#incs").click(function() {
-          $("#ins-div").slideToggle( "slow", function() {
-            // Animation complete.
-          });
-        });
-        // display additional app directory input field for Python deployments
-        $('#stack').on('change', function() {
-          if (this.value == "Python") {
-            $("#app-field").show();
-          }
-          else {
-            $("#app-field").hide();
-          }
-        });
-      });
-    </script>
+    
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
   </head>
@@ -86,5 +62,29 @@
         </div>
       </div>
   </body>
+
+  <script type="text/javascript">
+    // Materialize initializations
+    $('select').material_select();
+    $(".button-collapse").sideNav({
+      edge: "right",       // sideNav slides from right side after clicking hamburger icon
+      closeOnClick: true   // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    });
+    // toggle admin secret key password input field for user registration
+    $("#incs").click(function() {
+      $("#ins-div").slideToggle( "slow", function() {
+        // Animation complete.
+      });
+    });
+    // display additional app directory input field for Python deployments
+    $('#stack').on('change', function() {
+      if (this.value == "Python") {
+        $("#app-field").show();
+      }
+      else {
+        $("#app-field").hide();
+      }
+    });
+  </script>
 
 </html>
