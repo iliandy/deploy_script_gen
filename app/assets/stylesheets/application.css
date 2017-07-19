@@ -55,5 +55,8 @@ form{
 	color: #007bb6;
 }
 .select-dropdown li span {
-    color: #1B5E20;
+  color: #1B5E20;
+}
+#app-field{
+	display: none;
 }

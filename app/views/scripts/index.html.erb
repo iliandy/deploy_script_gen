@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <div class="row" id="app-field" style="display:none;">
+  <div class="row" id="app-field">
     <div class="input-field col s8">
       <label for="main_app">Main App Name (directory containing wsgi.py):</label>
       <input id="main_app" type="text" name="script[app_directory]">
@@ -36,13 +36,13 @@
 
   <div class="row">
     <div class="input-field col s8">
-      <label for="server_ip">AWS Server IP address:</label>
+      <label for="server_ip">AWS Server IP Address:</label>
       <input id="server_ip" type="text" name="script[server_ip]">
     </div>
   </div>
 
   <% if @current_user.access == "t" %>
-    <button class="btn waves-effect waves-light  green darken-4" type="submit" name="action">Generate Script
+    <button class="btn waves-effect waves-light green darken-4" type="submit" name="action">Generate Script
       <i class="material-icons right">send</i>
     </button>
   <% else %>
