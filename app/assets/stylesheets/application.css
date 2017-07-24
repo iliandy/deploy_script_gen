@@ -1,6 +1,9 @@
 
-#download_buttons{
+.download_buttons{
 	margin-top: 2%;
+}
+.download_btn{
+	width: 28%;
 }
 #logo{
 	margin-left: 2%;
@@ -55,5 +58,12 @@ form{
 	color: #007bb6;
 }
 .select-dropdown li span {
-    color: #1B5E20;
+  color: #1B5E20;
+}
+#app-field{
+	display: none;
+}
+code{
+	color: #ffffff;
+	background: #000000;
 }
