@@ -1,14 +1,20 @@
-<div id="download_buttons" class="row">
-	<% if @mean_script %>
-		<a href="<%= @mean_script %>"><button class="btn waves-effect waves-light green darken-4">Download MEAN Script</button></a>
+<div class="download_buttons row">
+	<% if @mean_angular_script %>
+		<a href="<%= @mean_angular_script %>"><button class="btn waves-effect waves-light green darken-4 download_btn">Download MEAN (Angular) Script</button></a>
 	<% end %>
 
-	<% if @python_script %>
-		<a href="<%= @python_script %>"><button class="btn waves-effect waves-light green darken-4">Download Python Script</button></a>
+	<% if @mean_angularjs_script %>
+		<a href="<%= @mean_angularjs_script %>"><button class="btn waves-effect waves-light green darken-4 download_btn">Download MEAN (AngularJS) Script</button></a>
+	<% end %>
+</div>
+
+<div class="download_buttons row">
+	<% if @python_django_script %>
+		<a href="<%= @python_django_script %>"><button class="btn waves-effect waves-light green darken-4 download_btn">Download Python Django Script</button></a>
 	<% end %>
 
-	<% if @ruby_script %>
-		<a href="<%= @ruby_script %>"><button class="btn waves-effect waves-light green darken-4">Download Ruby Script</button></a>
+	<% if @ruby_on_rails_script %>
+		<a href="<%= @ruby_on_rails_script %>"><button class="btn waves-effect waves-light green darken-4 download_btn">Download Ruby on Rails Script</button></a>
 	<% end %>
 </div>
 
@@ -20,20 +26,20 @@
 				<li>SSH into AWS server.</li>
 				<li>Create a new script.sh file with following:
 					<ul>
-						<li>sudo vim script.sh</li>
+						<li><code>sudo vim script.sh</code></li>
 						<li>Press "i" to insert input.</li>
-						<li>Copy complete content from your downloaded MEAN, Python, or Ruby script and paste into VIM script.sh file.</li>
+						<li>Copy complete content from downloaded MEAN Angular, MEAN AngularJS, Python Django, or Ruby on Rails script and paste into VIM script.sh file.</li>
 						<li>Press "Esc, :x, Enter" to save content and exit VIM.</li>
 					</ul>
 				</li>
 				<li>Modify script.sh to be executable:
 					<ul>
-						<li>sudo chmod +x script.sh</li>
+						<li><code>sudo chmod +x script.sh</code></li>
 					</ul>
 				</li>
 				<li>Run script.sh:
 					<ul>
-						<li>./script.sh</li>
+						<li><code>./script.sh</code></li>
 					</ul>
 				</li>
 				<li>Confirm successful deployment for:

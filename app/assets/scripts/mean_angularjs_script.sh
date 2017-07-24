@@ -47,5 +47,5 @@ sudo mkdir data/db
 cd -
 sudo npm install
 sudo chown -R ubuntu /data/db
-pm2 start mongod
-pm2 start server.js
+sudo pm2 start mongod
+sudo pm2 start server.js
