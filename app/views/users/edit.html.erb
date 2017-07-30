@@ -33,3 +33,11 @@
     <i class="material-icons right">send</i>
   </button>
 </form>
+
+<div class="blue-text">
+  <% if flash[:update] %>
+    <% flash[:update].each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
+  <% end %>
+</div>

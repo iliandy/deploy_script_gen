@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     user = User.update(params[:user_id], user_update_params.merge(dojo: Dojo.find(user_update_params[:dojo])))
 
     if user.valid?
-      flash[:msgs] = ["#{user_update_params[:first_name]} was successfully updated..."]
+      flash[:update] = ["#{user_update_params[:first_name]} was successfully updated..."]
     else
       flash[:msgs] = user.errors.full_messages
     end
