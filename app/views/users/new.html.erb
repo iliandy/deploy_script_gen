@@ -4,13 +4,13 @@
 <form action="/sessions" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div class="row">
-    <div class="input-field col s4">
+    <div class="input-field col s12 m4 l4">
       <i class="material-icons prefix">mail_outline</i>
       <label for="login_email">E-mail:</label>
       <input id="login_email" type="text" name="login[email]">
     </div>
 
-    <div class="input-field col s4">
+    <div class="input-field col s12 m4 l4">
       <i class="material-icons prefix">lock_outline</i>
       <label for="login_pass">Password:</label>
       <input id="login_pass" type="password" name="login[password]">
@@ -27,38 +27,38 @@
 <form action="/users" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div class="row">
-    <div class="input-field col s4">
+    <div class="input-field col s12 m4 l4">
       <i class="material-icons prefix">person_outline</i>
       <label for="first_name">First Name:</label>
       <input id="first_name" type="text" name="user[first_name]">
     </div>
-    <div class="input-field col s4">
+    <div class="input-field col s12 m4 l4">
       <i class="material-icons prefix">person</i>
       <label for="last_name">Last Name:</label>
       <input id="last_name" type="text" name="user[last_name]">
     </div>
   </div>
   <div class="row">
-    <div class="input-field col s8">
+    <div class="input-field col s12 m8 l8">
       <i class="material-icons prefix">mail_outline</i>
       <label for="email">E-mail:</label>
       <input id="email" type="text" name="user[email]">
     </div>
   </div>
   <div class="row">
-    <div class="input-field col s4">
+    <div class="input-field col s12 m4 l4">
       <i class="material-icons prefix">lock_outline</i>
       <label for="password">Password:</label>
       <input id="password" type="password" name="user[password]">
     </div>
-    <div class="input-field col s4">
+    <div class="input-field col s12 m4 l4">
       <i class="material-icons prefix">lock</i>
       <label for="password_conf">Password Confirmation:</label>
       <input id="password_conf" type="password" name="user[password_confirmation]">
     </div>
   </div>
   <div class="row">
-    <div class="input-field col s8">
+    <div class="input-field col s12 m8 l8">
       <i class="material-icons prefix">location_city</i>
       <select name="user[dojo]">
       <% @dojos.each do |dojo| %>
@@ -69,7 +69,7 @@
   </div>
 
   <div class="row">
-    <div class="input-field col s8">
+    <div class="input-field col s12 m8 l8">
       <input type="checkbox" id="incs" >
       <label for="incs">Instructor</label>
     </div>
