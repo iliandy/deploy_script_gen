@@ -5,6 +5,7 @@
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <div class="row">
     <div class="input-field col s8">
+      <i class="material-icons prefix">code</i>
       <select name="script[stack]" id="stack">
         <option value="mean_angular">MEAN (Angular)</option>
         <option value="mean_angularjs">MEAN (AngularJS)</option>
@@ -16,6 +17,7 @@
 
   <div class="row">
     <div class="input-field col s8">
+      <i class="material-icons prefix">folder</i>
       <label for="proj_dir">Project Directory Name:</label>
       <input id="proj_dir" type="text" name="script[project_directory]">
     </div>
@@ -23,6 +25,7 @@
 
   <div class="row" id="app-field">
     <div class="input-field col s8">
+      <i class="material-icons prefix">folder_open</i>
       <label for="main_app">Main App Name (directory containing wsgi.py):</label>
       <input id="main_app" type="text" name="script[app_directory]">
     </div>
@@ -30,6 +33,7 @@
 
   <div class="row">
     <div class="input-field col s8">
+      <i class="prefix fa fa-github"></i>
       <label for="github_repo">GitHub Repo URL:</label>
       <input id="github_repo" type="text" name="script[github_repo]">
     </div>
@@ -37,6 +41,7 @@
 
   <div class="row">
     <div class="input-field col s8">
+      <i class="material-icons prefix">storage</i>
       <label for="server_ip">AWS Server IP Address:</label>
       <input id="server_ip" type="text" name="script[server_ip]">
     </div>
