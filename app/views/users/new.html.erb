@@ -6,13 +6,13 @@
   <div class="row">
     <div class="input-field col s4">
       <i class="material-icons prefix">mail_outline</i>
-      <label for="login_email">E-mail: </label>
+      <label for="login_email">E-mail:</label>
       <input id="login_email" type="text" name="login[email]">
     </div>
 
     <div class="input-field col s4">
       <i class="material-icons prefix">lock_outline</i>
-      <label for="login_pass">Password: </label>
+      <label for="login_pass">Password:</label>
       <input id="login_pass" type="password" name="login[password]">
     </div>
   </div>
@@ -29,31 +29,31 @@
   <div class="row">
     <div class="input-field col s4">
       <i class="material-icons prefix">person_outline</i>
-      <label for="first_name">First Name: </label>
+      <label for="first_name">First Name:</label>
       <input id="first_name" type="text" name="user[first_name]">
     </div>
     <div class="input-field col s4">
       <i class="material-icons prefix">person</i>
-      <label for="last_name">Last Name: </label>
+      <label for="last_name">Last Name:</label>
       <input id="last_name" type="text" name="user[last_name]">
     </div>
   </div>
   <div class="row">
     <div class="input-field col s8">
       <i class="material-icons prefix">mail_outline</i>
-      <label for="email">E-mail: </label>
+      <label for="email">E-mail:</label>
       <input id="email" type="text" name="user[email]">
     </div>
   </div>
   <div class="row">
     <div class="input-field col s4">
       <i class="material-icons prefix">lock_outline</i>
-      <label for="password">Password: </label>
+      <label for="password">Password:</label>
       <input id="password" type="password" name="user[password]">
     </div>
     <div class="input-field col s4">
       <i class="material-icons prefix">lock</i>
-      <label for="password_conf">Password Confirmation: </label>
+      <label for="password_conf">Password Confirmation:</label>
       <input id="password_conf" type="password" name="user[password_confirmation]">
     </div>
   </div>
@@ -62,7 +62,7 @@
       <i class="material-icons prefix">location_city</i>
       <select name="user[dojo]">
       <% @dojos.each do |dojo| %>
-        <option value="<%= dojo.id %>"><%= dojo.name %></option>
+        <option <%= "selected" if dojo.name == "Coding Dojo Dallas" %> value="<%= dojo.id %>"><%= dojo.name %></option>
       <% end %>
       </select>
     </div>
@@ -77,7 +77,8 @@
   <div class="row" style="display:none;" id="ins-div">
     <div class="input-field col s8">
       <i class="material-icons prefix">vpn_key</i>
-      <input type="password" name="secret_key[password]" placeholder="Admin Password">
+      <label for="secret_key">Admin Password:</label>
+      <input id="secret_key" type="password" name="secret_key[password]">
     </div>
   </div>
 

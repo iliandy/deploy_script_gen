@@ -5,22 +5,26 @@
   <input type="hidden" name="_method" value="put">
   <div class="row">
     <div class="input-field col s4">
+      <i class="material-icons prefix">person_outline</i>
       <label class="active" for="first_name">First Name: </label>
       <input id="first_name" type="text" name="user[first_name]" value="<%= @current_user.first_name %>">
     </div>
     <div class="input-field col s4">
+      <i class="material-icons prefix">person</i>
       <label class="active" for="last_name">Last Name: </label>
       <input id="last_name" type="text" name="user[last_name]" value="<%= @current_user.last_name %>">
     </div>
   </div>
   <div class="row">
     <div class="input-field col s8">
+      <i class="material-icons prefix">mail_outline</i>
       <label class="active" for="email">E-mail: </label>
       <input id="email" type="text" name="user[email]" value="<%= @current_user.email %>">
     </div>
   </div>
   <div class="row">
     <div class="input-field col s8">
+      <i class="material-icons prefix">location_city</i>
       <select name="user[dojo]">
       <% @dojos.each do |dojo| %>
         <option <%= "selected" if dojo.id == @current_user.dojo.id %> value="<%= dojo.id %>"><%= dojo.name %></option>
