@@ -1,3 +1,4 @@
+<% if @mean_angularjs_script or @mean_angular_script %>
 <div class="download_buttons row">
 	<% if @mean_angular_script %>
 		<a href="<%= @mean_angular_script %>"><button class="btn waves-effect waves-light green darken-4 download_btn">Download MEAN (Angular) Script</button></a>
@@ -7,7 +8,9 @@
 		<a href="<%= @mean_angularjs_script %>"><button class="btn waves-effect waves-light green darken-4 download_btn">Download MEAN (AngularJS) Script</button></a>
 	<% end %>
 </div>
+<% end %>
 
+<% if @python_django_script or @ruby_on_rails_script %>
 <div class="download_buttons row">
 	<% if @python_django_script %>
 		<a href="<%= @python_django_script %>"><button class="btn waves-effect waves-light green darken-4 download_btn">Download Python Django Script</button></a>
@@ -17,6 +20,7 @@
 		<a href="<%= @ruby_on_rails_script %>"><button class="btn waves-effect waves-light green darken-4 download_btn">Download Ruby on Rails Script</button></a>
 	<% end %>
 </div>
+<% end %>
 
 <div class="row">
 	<div class="row">
