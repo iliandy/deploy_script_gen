@@ -1,88 +1,101 @@
 <h3>Welcome!</h3>
-<!-- user login -->
-<h5>Login</h5>
-<form action="/sessions" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <div class="row">
-    <div class="input-field col s12 m4 l4">
-      <i class="material-icons prefix">mail_outline</i>
-      <label for="login_email">E-mail:</label>
-      <input id="login_email" type="text" name="login[email]">
-    </div>
+<div class="row">
+	<div class="col s12">
+		<ul class="tabs">
+			<li class="tab col s2"><a class="green-text" href="#login">Login</a></li>
+			<li class="tab col s2"><a class="green-text" href="#register">Register</a></li>
+      <div class="indicator green"></div>
+		</ul>
+	</div>
+  
+  <!-- user login -->
+	<div id="login" class="col s12">
+    <form action="/sessions" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <div class="row">
+        <div class="input-field col s12 m4 l4">
+          <i class="material-icons prefix">mail_outline</i>
+          <label for="login_email">E-mail:</label>
+          <input id="login_email" type="text" name="login[email]">
+        </div>
 
-    <div class="input-field col s12 m4 l4">
-      <i class="material-icons prefix">lock_outline</i>
-      <label for="login_pass">Password:</label>
-      <input id="login_pass" type="password" name="login[password]">
-    </div>
-  </div>
+        <div class="input-field col s12 m4 l4">
+          <i class="material-icons prefix">lock_outline</i>
+          <label for="login_pass">Password:</label>
+          <input id="login_pass" type="password" name="login[password]">
+        </div>
+      </div>
 
-  <button class="btn waves-effect waves-light green darken-4" type="submit" name="action">Login User
-    <i class="material-icons right">send</i>
-  </button>
-</form>
+      <button class="btn waves-effect waves-light green darken-4" type="submit" name="action">Login User
+        <i class="material-icons right">send</i>
+      </button>
+    </form>
+	</div>
 
-<!-- user registration -->
-<h5>Register</h5>
-<form action="/users" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <div class="row">
-    <div class="input-field col s12 m4 l4">
-      <i class="material-icons prefix">person_outline</i>
-      <label for="first_name">First Name:</label>
-      <input id="first_name" type="text" name="user[first_name]">
-    </div>
-    <div class="input-field col s12 m4 l4">
-      <i class="material-icons prefix">person</i>
-      <label for="last_name">Last Name:</label>
-      <input id="last_name" type="text" name="user[last_name]">
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12 m8 l8">
-      <i class="material-icons prefix">mail_outline</i>
-      <label for="email">E-mail:</label>
-      <input id="email" type="text" name="user[email]">
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12 m4 l4">
-      <i class="material-icons prefix">lock_outline</i>
-      <label for="password">Password:</label>
-      <input id="password" type="password" name="user[password]">
-    </div>
-    <div class="input-field col s12 m4 l4">
-      <i class="material-icons prefix">lock</i>
-      <label for="password_conf">Password Confirmation:</label>
-      <input id="password_conf" type="password" name="user[password_confirmation]">
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12 m8 l8">
-      <i class="material-icons prefix">location_city</i>
-      <select name="user[dojo]">
-      <% @dojos.each do |dojo| %>
-        <option <%= "selected" if dojo.name == "Coding Dojo Dallas" %> value="<%= dojo.id %>"><%= dojo.name %></option>
-      <% end %>
-      </select>
-    </div>
-  </div>
+  <!-- user registration -->
+	<div id="register" class="col s12">
+    <form action="/users" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <div class="row">
+        <div class="input-field col s12 m4 l4">
+          <i class="material-icons prefix">person_outline</i>
+          <label for="first_name">First Name:</label>
+          <input id="first_name" type="text" name="user[first_name]">
+        </div>
+        <div class="input-field col s12 m4 l4">
+          <i class="material-icons prefix">person</i>
+          <label for="last_name">Last Name:</label>
+          <input id="last_name" type="text" name="user[last_name]">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m8 l8">
+          <i class="material-icons prefix">mail_outline</i>
+          <label for="email">E-mail:</label>
+          <input id="email" type="text" name="user[email]">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m4 l4">
+          <i class="material-icons prefix">lock_outline</i>
+          <label for="password">Password:</label>
+          <input id="password" type="password" name="user[password]">
+        </div>
+        <div class="input-field col s12 m4 l4">
+          <i class="material-icons prefix">lock</i>
+          <label for="password_conf">Password Confirmation:</label>
+          <input id="password_conf" type="password" name="user[password_confirmation]">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12 m8 l8">
+          <i class="material-icons prefix">location_city</i>
+          <select name="user[dojo]">
+            <% @dojos.each do |dojo| %>
+            <option <%= "selected" if dojo.name == "Coding Dojo Dallas" %> value="<%= dojo.id %>"><%= dojo.name %></option>
+            <% end %>
+          </select>
+        </div>
+      </div>
 
-  <div class="row">
-    <div class="input-field col s12 m8 l8">
-      <input type="checkbox" id="incs" >
-      <label for="incs">Instructor</label>
-    </div>
-  </div>
-  <div class="row" style="display:none;" id="ins-div">
-    <div class="input-field col s8">
-      <i class="material-icons prefix">vpn_key</i>
-      <label for="secret_key">Admin Password:</label>
-      <input id="secret_key" type="password" name="secret_key[password]">
-    </div>
-  </div>
+      <div class="row">
+        <div class="input-field col s12 m8 l8">
+          <input type="checkbox" id="incs" >
+          <label for="incs">Instructor</label>
+        </div>
+      </div>
+      <div class="row" style="display:none;" id="ins-div">
+        <div class="input-field col s8">
+          <i class="material-icons prefix">vpn_key</i>
+          <label for="secret_key">Admin Password:</label>
+          <input id="secret_key" type="password" name="secret_key[password]">
+        </div>
+      </div>
 
-  <button class="btn waves-effect waves-light green darken-4" type="submit" name="action">Register User
-    <i class="material-icons right">send</i>
-  </button>
-</form>
+      <button class="btn waves-effect waves-light green darken-4" type="submit" name="action">Register User
+        <i class="material-icons right">send</i>
+      </button>
+    </form>
+
+	</div>
+</div>
