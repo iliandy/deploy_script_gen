@@ -52,7 +52,7 @@ yes yes | python manage.py collectstatic
 # gunicorn --bind 0.0.0.0:8000 $app_dir.wsgi:application
 deactivate
 
-# setup gunicorn --- working ---
+# setup gunicorn
 sudo sh -c "echo '$gunicorn_config' >> '$gunicorn_conf'"
 
 sudo systemctl daemon-reload

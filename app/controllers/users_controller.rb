@@ -11,27 +11,35 @@ class UsersController < ApplicationController
   end
 
   def create
+    # admin user registration
     if secret_params[:password] != ''
       key = SecretKey.last
+      # valid admin password
       if key and key.authenticate(secret_params[:password])
         user = User.create(user_params.merge(dojo: Dojo.find(user_params[:dojo]), access: true))
+        # successful admin user registration
         if user.valid?
           session[:user_id] = user.id
           Admin.create(user: user)
           redirect_to '/scripts'
+        # failed admin user registration
         else
           flash[:msgs] = user.errors.full_messages
           redirect_to '/'
         end
+      # invalid admin password
       else
         flash[:msgs] = ['Invalid admin password']
         redirect_to '/'
       end
+    # student user registration
     else
       user = User.create(user_params.merge(dojo: Dojo.find(user_params[:dojo]), access: false))
+      # successful student user registration
       if user.valid?
         session[:user_id] = user.id
         redirect_to '/scripts'
+      # failed student user registration
       else
         flash[:msgs] = user.errors.full_messages
         redirect_to '/'
