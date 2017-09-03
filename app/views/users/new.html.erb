@@ -7,7 +7,7 @@
       <div class="indicator green"></div>
 		</ul>
 	</div>
-  
+
   <!-- user login -->
 	<div id="login" class="col s12">
     <form action="/sessions" method="post">
@@ -69,7 +69,7 @@
       </div>
       <div class="row">
         <div class="input-field col s12 m8 l8">
-          <i class="material-icons prefix">location_city</i>
+          <i class="material-icons">domain</i>
           <select name="user[dojo]">
             <% @dojos.each do |dojo| %>
             <option <%= "selected" if dojo.name == "Coding Dojo Dallas" %> value="<%= dojo.id %>"><%= dojo.name %></option>
