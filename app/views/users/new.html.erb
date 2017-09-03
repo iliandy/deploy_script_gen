@@ -3,7 +3,11 @@
 	<div class="col s12">
 		<ul class="tabs">
 			<li class="tab col s2"><a class="green-text" href="#login">Login</a></li>
-			<li class="tab col s2"><a class="green-text" href="#register">Register</a></li>
+			<% if flash[:msgs] && flash[:msgs] != ["Invalid login credentials"] %>
+				<li class="tab col s2"><a class="green-text active" href="#register">Register</a></li>
+			<% else %>
+				<li class="tab col s2"><a class="green-text" href="#register">Register</a></li>
+			<% end %>
       <div class="indicator green"></div>
 		</ul>
 	</div>
@@ -69,7 +73,7 @@
       </div>
       <div class="row">
         <div class="input-field col s12 m8 l8">
-          <i class="material-icons">domain</i>
+          <i class="material-icons prefix">domain</i>
           <select name="user[dojo]">
             <% @dojos.each do |dojo| %>
             <option <%= "selected" if dojo.name == "Coding Dojo Dallas" %> value="<%= dojo.id %>"><%= dojo.name %></option>
