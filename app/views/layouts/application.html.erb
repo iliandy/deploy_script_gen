@@ -27,26 +27,26 @@
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="/about">About</a></li>
             <% if session[:user_id] %>
-            <li><a href="/scripts">Generate Script</a></li>
-            <li><a href="/users/<%= session[:user_id] %>/edit">Edit Profile</a></li>
-            <li><a href="/public">Script Downloads</a>
-            <% if get_admin_ids.include? session[:user_id] %>
-            <li><a href="/admins/<%= session[:user_id] %>">Admin Dashboard</a></li>
-            <% end %>
-            <li><a href="/sessions/<%= session[:user_id] %>" data-method="delete">Logout</a></li>
+              <li><a href="/scripts">Generate Script</a></li>
+              <li><a href="/users/<%= session[:user_id] %>/edit">Edit Profile</a></li>
+              <li><a href="/public">Script Downloads</a>
+              <% if get_admin_ids.include? session[:user_id] %>
+                <li><a href="/admins/<%= session[:user_id] %>">Admin Dashboard</a></li>
+              <% end %>
+              <li><a href="/sessions/<%= session[:user_id] %>" data-method="delete">Logout</a></li>
             <% end %>
           </ul>
 
           <ul id="mobile-demo" class="side-nav">
             <li><a href="/about">About</a></li>
             <% if session[:user_id] %>
-            <li><a href="/scripts">Generate Script</a></li>
-            <li><a href="/users/<%= session[:user_id] %>/edit">Edit Profile</a></li>
-            <li><a href="/public">Script Downloads</a>
-            <% if get_admin_ids.include? session[:user_id] %>
-            <li><a href="/admins/<%= session[:user_id] %>">Admin Dashboard</a></li>
-            <% end %>
-            <li><a href="/sessions/<%= session[:user_id] %>" data-method="delete">Logout</a></li>
+              <li><a href="/scripts">Generate Script</a></li>
+              <li><a href="/users/<%= session[:user_id] %>/edit">Edit Profile</a></li>
+              <li><a href="/public">Script Downloads</a>
+              <% if get_admin_ids.include? session[:user_id] %>
+                <li><a href="/admins/<%= session[:user_id] %>">Admin Dashboard</a></li>
+              <% end %>
+              <li><a href="/sessions/<%= session[:user_id] %>" data-method="delete">Logout</a></li>
             <% end %>
           </ul>
         </div>
@@ -63,30 +63,29 @@
           <% end %>
         </div>
       </div>
+
+      <script type="text/javascript">
+        // Materialize initializations
+        $('select').material_select();
+        $(".button-collapse").sideNav({
+          edge: "right",       // sideNav slides from right side after clicking hamburger icon
+          closeOnClick: true   // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        });
+        // toggle admin secret key password input field for user registration
+        $("#incs").click(function() {
+          $("#ins-div").slideToggle( "slow", function() {
+            // Animation complete.
+          });
+        });
+        // display additional app directory input field for Python deployments
+        $('#stack').on('change', function() {
+          if (this.value == "python_django") {
+            $("#app-field").show();
+          }
+          else {
+            $("#app-field").hide();
+          }
+        });
+      </script>
   </body>
-
-  <script type="text/javascript">
-    // Materialize initializations
-    $('select').material_select();
-    $(".button-collapse").sideNav({
-      edge: "right",       // sideNav slides from right side after clicking hamburger icon
-      closeOnClick: true   // Closes side-nav on <a> clicks, useful for Angular/Meteor
-    });
-    // toggle admin secret key password input field for user registration
-    $("#incs").click(function() {
-      $("#ins-div").slideToggle( "slow", function() {
-        // Animation complete.
-      });
-    });
-    // display additional app directory input field for Python deployments
-    $('#stack').on('change', function() {
-      if (this.value == "python_django") {
-        $("#app-field").show();
-      }
-      else {
-        $("#app-field").hide();
-      }
-    });
-  </script>
-
 </html>

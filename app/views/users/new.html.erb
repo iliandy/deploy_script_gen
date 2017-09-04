@@ -2,11 +2,11 @@
 <div class="row">
 	<div class="col s12">
 		<ul class="tabs">
-			<li class="tab col s2"><a class="green-text" href="#login">Login</a></li>
+			<li class="tab col s6 m2 l2"><a class="green-text" href="#login">Login</a></li>
 			<% if flash[:msgs] && flash[:msgs] != ["Invalid login credentials"] %>
-				<li class="tab col s2"><a class="green-text active" href="#register">Register</a></li>
+				<li class="tab col s6 m2 l2"><a class="green-text active" href="#register">Register</a></li>
 			<% else %>
-				<li class="tab col s2"><a class="green-text" href="#register">Register</a></li>
+				<li class="tab col s6 m2 l2"><a class="green-text" href="#register">Register</a></li>
 			<% end %>
       <div class="indicator green"></div>
 		</ul>
