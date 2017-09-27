@@ -16,12 +16,12 @@ Rails.application.routes.draw do
   post "/scripts/gen" => "scripts#generate"
   get "/public" => "scripts#download"
 
-  #admins routes
+  # admins routes
   get "/admins/:id" => "admins#show"
   get "/access/:id/allow" => "admins#allow"
   get "/access/:id/deny" => "admins#deny"
 
-  #unknown routes
+  # unknown routes
   get "*unknown_route", to: redirect("/")
 
 end
