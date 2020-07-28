@@ -7,7 +7,7 @@ class ScriptsController < ApplicationController
     File.write(f = filepath, File.read(f).gsub(search_str, replace_str))
   end
 
-  # writes script file to replace project directory, github url, and AWS server IP address template placeholders
+  # writes script template file to replace project directory, github url, and AWS server IP address template placeholders
   def script_replace(temp_script_path, script)
     str_replace(temp_script_path, "$project_dir", script[:project_directory])
     str_replace(temp_script_path, "$url", script[:github_repo])
